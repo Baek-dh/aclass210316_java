@@ -409,10 +409,6 @@ public class LoopService {
 			System.out.println();
 		}
 		
-		
-		
-		
-		
 	}
 	
 	public void challenge2() {
@@ -424,8 +420,101 @@ public class LoopService {
 		12
 		1
 		*/
+		
+		
 	}
 	
+	
+	// ----------------------------------------------------------------
+	
+	/* while문
+	 * 
+	 * while(조건식){
+	 * 	// 조건식이 true일 경우 수행할 코드
+	 *
+	 * }
+	 * 
+	 * for문 : 초기식에서 선언된 변수를 이용하여 
+	 *  	    반복을 제어 할수 있음.
+	 *        == 언제 시작해서 언제 끝날지 정해져 있음.
+	 *        
+	 *        
+	 * while문 : 별도의 초기식이 존재하지 않아서      	
+	 *          반복 종료 조건을 자유롭게 설정.
+	 *          == 언제 끝날지 모름.
+	 * */
+	
+	public void example18() {
+		
+		// 9가 입력될 때 까지 계속 메뉴 출력
+		// 9가 입력되면 "프로그램 종료"를 출력 후 진짜 종료
+		Scanner sc = new Scanner(System.in);
+		
+		int input = 0; // while문 내에서 입력받은 값을 저장할 변수
+		
+		while(input != 9) {
+			System.out.println("--------------");
+			System.out.println("1. 조회");
+			System.out.println("2. 작성");
+			System.out.println("3. 수정");
+			System.out.println("4. 삭제");
+			System.out.println("9. 종료");
+			
+			System.out.print("선택 >> ");
+			input = sc.nextInt();
+		}
+		
+		System.out.println("프로그램 종료");
+	}
+	
+	
+	
+	public void example19() {
+		
+		// 입력되는 모든 수의 합계 구하기
+		// (0 입력 시 종료)
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int sum = 0; // 입력되는 모든 수의 합계를 저장할 	변수
+		
+		int input = -1; // while문 내에서 입력 받은 값을 저장할 변수
+		// input을 -1로 초기화한 이유 : 0으로 하면 while문이 바로 종료되니까
+		
+		while(input != 0) { // input이 0이 아닐 경우 반복
+			System.out.print("입력 : ");
+			input = sc.nextInt();
+			sum += input;
+		}
+		
+		System.out.println("합계 : " + sum);
+	}
+	
+	
+	
+	public void example20() {
+		/* do ~ while문
+		 * - {} 내의 코드를 무조건 1회는 수행하는 while문
+		 * 
+		 * do{
+		 * 	// 반복 수행할 코드 작성
+		 * 
+		 * }while(조건식);
+		 * 
+		 * */
+		Scanner sc = new Scanner(System.in);
+		int sum = 0;
+		int input = 0;
+		
+		do {
+			System.out.print("입력 : ");
+			input = sc.nextInt();
+			sum += input;
+			
+		}while(input != 0);
+		
+		System.out.println("합계 : " + sum);
+	}
 	
 	
 	
