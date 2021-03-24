@@ -268,6 +268,70 @@ public class LoopService {
 	
 	
 	
+	
+	/* 중첩 반복문
+	 * - 반복문 내부에 반복문이 중첩되어 작성됨.
+	 * */
+	public void example11() {
+		// 0분 0초 부터 59분 59초까지 출력
+		for(int min=0 ; min < 60 ; min++) { // 0 ~ 59분 반복 == 1시간
+			
+			for(int sec=0 ; sec < 60 ; sec++) { // 0 ~ 59 초 반복 == 1분
+				
+				System.out.printf("%02d분 %02d초\n", min, sec);
+			}
+		}
+	}
+	
+	
+	public void example12() {
+		
+		// 2중 for문을 활용해서 아래 모양을 출력
+		// 12345
+		// 12345
+		// 12345
+		// 12345
+		// 12345
+		
+		for(int i=1 ; i<=5 ; i++) {
+			
+			for(int j=1 ; j<=5 ; j++) {
+				System.out.print(j);
+			}
+			
+			System.out.println(); // 줄바꿈
+		}
+	}
+	
+	
+	public void example13() {
+		
+		// 2중 for문을 활용해서 아래 모양을 출력
+		// 54321
+		// 54321
+		// 54321
+		
+		for(int i=1 ; i<=3 ; i++) { // i = 1,2,3
+			
+			for(int j=5 ; j>=1 ; j--) { // j = 5,4,3,2,1
+				System.out.print(j);
+			}
+			
+			System.out.println(); // 줄바꿈
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 } // class end
 
 

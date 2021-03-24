@@ -17,6 +17,9 @@ public class LoopRun {
 		//service.example7();
 		//service.example8();
 		//service.example9();
-		service.example10();
+		//service.example10();
+		//service.example11();
+		//service.example12();
+		service.example13();
 	}
 }
