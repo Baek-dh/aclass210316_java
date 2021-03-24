@@ -313,16 +313,118 @@ public class LoopService {
 		
 		for(int i=1 ; i<=3 ; i++) { // i = 1,2,3
 			
+			System.out.print(i + "번째 : ");
+			
 			for(int j=5 ; j>=1 ; j--) { // j = 5,4,3,2,1
 				System.out.print(j);
 			}
 			
 			System.out.println(); // 줄바꿈
 		}
-		
 	}
 	
 	
+	public void example14() {
+		// 2단부터 9단까지 모두 출력
+		
+		for(int dan=2 ; dan<=9 ; dan++) { // 2 ~ 9단
+			
+			for(int num=1 ; num<=9 ; num++) { // 1 ~ 9 곱해지는 수
+			
+				System.out.printf("%d x %d = %-2d\n", dan, num, dan*num );      
+			}
+			
+			System.out.println(); // 줄바꿈
+			
+		}
+	}
+	
+	
+	public void example15() {
+		// 9 ~ 2단까지 거꾸로 출력
+		
+		// === 9단 ===
+		// 9 x 9 = 81
+		// 9 x 8 = 72
+		// ...
+		
+		// === 2단 ===
+		// 2 x 9 = 18
+		// ...
+		// 2 x 2 = 2
+		
+		for(int dan=9 ; dan>=2 ; dan--) {
+			
+			System.out.println("=== " + dan +"단 ===");
+			
+			for(int num=9 ; num>=1 ; num--) {
+				System.out.printf("%d x %d = %-2d\n",dan, num ,dan*num);
+			}
+			
+			System.out.println();
+		}
+	}
+	
+	
+	public void example16() {
+		
+		// 2중 for문을 활용해서 아래 모양을 출력
+		
+		// 1
+		// 12
+		// 123
+		// 1234
+		
+		for(int i=1 ; i<=4 ; i++) { // i = 1,2,3,4
+			
+			for(int j=1 ; j<=i ; j++) {
+				
+				System.out.print(j);
+			}
+			
+			System.out.println();
+		}
+	}
+	
+	public void example17() {
+		
+		/*
+		정수 입력 : 5
+		1
+		12
+		123
+		1234
+		12345
+		*/
+		Scanner sc = new Scanner(System.in);
+		System.out.print("정수 입력 : ");
+		int input = sc.nextInt();
+		
+		for(int i=1 ; i<=input ; i++) {
+			
+			for(int j=1 ; j<=i ; j++) {
+				
+				System.out.print(j);
+			}
+			System.out.println();
+		}
+		
+		
+		
+		
+		
+	}
+	
+	public void challenge2() {
+		/*
+		정수 입력 : 5
+		12345
+		1234
+		123
+		12
+		1
+		*/
+	}
 	
 	
 	
