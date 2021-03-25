@@ -6,6 +6,8 @@ public class ArrayRun {
 	public static void main(String[] args) {
 		
 		ArrayService1 service1 = new ArrayService1();
-		service1.example1();
+		//service1.example1();
+		//service1.example2();
+		service1.example3();
 	}
 }
