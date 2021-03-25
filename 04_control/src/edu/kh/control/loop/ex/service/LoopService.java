@@ -463,7 +463,6 @@ public class LoopService {
 			System.out.print("선택 >> ");
 			input = sc.nextInt();
 		}
-		
 		System.out.println("프로그램 종료");
 	}
 	
