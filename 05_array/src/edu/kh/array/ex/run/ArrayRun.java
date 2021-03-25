@@ -8,6 +8,8 @@ public class ArrayRun {
 		ArrayService1 service1 = new ArrayService1();
 		//service1.example1();
 		//service1.example2();
-		service1.example3();
+		//service1.example3();
+		//service1.example4();
+		service1.challenge1();
 	}
 }

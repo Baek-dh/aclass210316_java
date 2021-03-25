@@ -136,9 +136,76 @@ public class ArrayService1 {
 		}
 		
 		System.out.println("합계 :  " + sum  );
+	}
+	
+	
+	
+	public void example4() {
+		// 배열 선언과 동시에 초기화
+		
+		// int[] arr을 선언하고 5칸 할당한 후
+		// 각 인덱스를 1,2,3,4,5로 초기화
+		int[] arr = {10, 21, 33, 44, 55};
+		
+		System.out.println(arr[2]); // 3
+		System.out.println(arr[4]); // 5
+		//System.out.println(arr[5]); // ArrayIndexOutOfBoundsException
+		
+		
+		String[] fruit = {"딸기", "바나나", "사과", "오렌지", 
+						  "토마토", "아보카도", "케일"};
+		
+		System.out.println("fruit.length : " + fruit.length); // 7
+		
+		System.out.println(fruit[2] + fruit[6] + " 쥬스");
+	}
+	
+	
+	public void challenge1() {
+		
+		// 정수 5개를 입력받은 후
+		// 1~5 사이 숫자 하나를 선택하여
+		// 해당 번째에 입력받은 수를 출력
+		
+		// [실행화면]
+		// 입력 1 : 10
+		// 입력 2 : 7
+		// 입력 3 : 55
+		// 입력 4 : 13
+		// 입력 5 : 25
+		
+		// 1~5 사이 숫자 하나 입력 : 4
+		// 4번째 입력한 수 : 13
+		
+		
+		
+		
+		
+		
+		
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int[] inputs = new int[5];
+		
+		for(int i=0 ; i<inputs.length ; i++) {
+			System.out.print("입력 " + (i+1) + " : ");
+			inputs[i] = sc.nextInt();
+		}
+		
+		System.out.print("1~5사이 숫자 하나 입력 : ");
+		int num = sc.nextInt();
+		
+		System.out.println(num + "번째 입력한 수 : " + inputs[num-1]);
+		
+		
 		
 		
 	}
+	
+	
+	
+	
 	
 	
 	
