@@ -73,6 +73,8 @@ public class ArrayService1 {
 		}
 		
 		
+		
+		
 		// int형 배열 arr2를 선언 후 7칸을 할당하여 
 		// 각 인덱스에 0,2,4,6,8,10,12 를 초기화 후 역순으로 출력
 		int[] arr2 = new int[7];
@@ -165,7 +167,7 @@ public class ArrayService1 {
 		
 		// 정수 5개를 입력받은 후
 		// 1~5 사이 숫자 하나를 선택하여
-		// 해당 번째에 입력받은 수를 출력
+		// 해당 번째에 입력 받은 수를 출력
 		
 		// [실행화면]
 		// 입력 1 : 10
@@ -177,42 +179,30 @@ public class ArrayService1 {
 		// 1~5 사이 숫자 하나 입력 : 4
 		// 4번째 입력한 수 : 13
 		
-		
-		
-		
-		
-		
-		
-		
 		Scanner sc = new Scanner(System.in);
 		
-		int[] inputs = new int[5];
+		int[] arr = new int[5]; // int 배열 선언 및 5칸 할당
 		
-		for(int i=0 ; i<inputs.length ; i++) {
-			System.out.print("입력 " + (i+1) + " : ");
-			inputs[i] = sc.nextInt();
+		for(int i=0 ; i<arr.length ; i++) { // 입력받은 값으로 배열 초기화
+			
+			System.out.print("입력 " + (i+1) + " : "); // 입력 1 : 
+			arr[i] = sc.nextInt();
 		}
 		
-		System.out.print("1~5사이 숫자 하나 입력 : ");
-		int num = sc.nextInt();
-		
-		System.out.println(num + "번째 입력한 수 : " + inputs[num-1]);
-		
-		
-		
-		
+		while(true) {
+			
+			System.out.print("1~5 사이 숫자 하나 입력 : ");
+			int input = sc.nextInt();
+			
+			if(input >= 1 && input <= 5) {
+				System.out.printf("%d번째 입력한 수 : %d\n", input, arr[input-1]);
+				break;
+			}else {
+				System.out.println("1~5 사이 숫자를 입력해주세요.");
+			}
+		}
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 }
