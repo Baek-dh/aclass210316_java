@@ -19,9 +19,10 @@ public class ArrayRun {
 		
 		ArrayService2 service2 = new ArrayService2();
 		//service2.example1();
-		//service2.example2();
+		service2.example2();
 		//service2.example3();
-		service2.example4();
+		//service2.example4();
+		//service2.example5();
 		
 	}
 }

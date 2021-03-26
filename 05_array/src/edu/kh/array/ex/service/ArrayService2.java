@@ -52,9 +52,15 @@ public class ArrayService2 {
 		int[] copyArr = new int[arr.length];
 		
 		// for문을 이용한 깊은 복사
-		for(int i=0 ; i<arr.length ; i++) {
-			copyArr[i] = arr[i];
-		}
+//		for(int i=0 ; i<arr.length ; i++) {
+//			copyArr[i] = arr[i];
+//		}
+		
+		// System.arraycopy(원본배열명, 원본 복사 시작인덱스, 복사배열명, 
+		//						복사 배열 붙여넣기 시작 인덱스, 복사길이);
+		System.arraycopy(arr, 0 , copyArr , 0  , arr.length);
+		
+		
 		
 		System.out.println("arr : " + Arrays.toString(arr));
 		System.out.println("copyArr : " + Arrays.toString(copyArr));
@@ -129,6 +135,38 @@ public class ArrayService2 {
 			}
 		}
 	}
+	
+	
+	public void example5() {
+		
+		// 중복 제거
+		
+		// 1~5사이 난수 5개를 배열에 저장
+		
+		int[] arr = new int[6];
+		
+		for(int i=0 ; i<arr.length ; i++) {
+			arr[i] =  (int)(Math.random() * 45 + 1);
+		
+			for(int j=0 ; j<i ; j++) {
+				
+				if(arr[i] == arr[j]) { // 중복일 경우
+					// arr[i] : 현재 발생한 난수
+					// arr[j] : 앞서 발생한 난수
+					i--; // 중복이 발생한 경우 현재 자리에 다시 난수 발생
+					break;
+				}
+			}
+		}
+		Arrays.sort(arr);
+		
+		System.out.println(Arrays.toString(arr));
+		
+	}
+	
+	
+	
+	
 	
 	
 	
