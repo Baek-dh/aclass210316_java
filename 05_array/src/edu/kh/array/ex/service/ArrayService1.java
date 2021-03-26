@@ -204,5 +204,133 @@ public class ArrayService1 {
 	}
 	
 
+	public void example5() {
+		
+		// 5명의 키를 입력받아 배열에 저장한 후
+		// 5명 키 평균과 최장신, 최단신 출력
+		
+		Scanner sc = new Scanner(System.in);
+		
+		double[] arr = new double[5];
+		
+		// 입력 받는 용도
+		for(int i=0 ; i<arr.length ; i++) {
+			System.out.print("키 입력 : ");
+			arr[i] = sc.nextDouble();
+		}
+		
+		
+		// 평균, 최대값, 최소값
+		// 평균 = 모든 값을 더한값 / 개수
+		double sum = 0;
+		
+		double max = arr[0]; // 한없이 작은 값 또는 입력되어 있는 값 중 하나로 초기화
+		double min = Double.MAX_VALUE;
+		// Double.MAX_VALUE : double 최대값
+		
+		for(int i=0 ; i<arr.length ; i++) {
+			sum += arr[i];
+			
+			if(arr[i] > max ) { // 최대값 비교
+				// 현재 얻어온 값 arr[i]가 max보다 크다면
+				max = arr[i];
+			}
+			
+			if(arr[i] < min) { // 최소값 비교 
+				min = arr[i];
+			}
+		}
+		
+		System.out.println("평균 : " + sum / arr.length);
+		System.out.println("최장신 : " + max);
+		System.out.println("최단신 : " + min);
+	}
+	
+	
+	public void example6() {
+		
+		// 인원 수를 입력 받아 
+		// 입력 된 인원 수 만큼의 배열을 할당하고
+		// 점수를 입력 받아 배열에 초기화 한 후
+		// 입력 역순으로 출력
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("인원 수 : ");
+		int num = sc.nextInt();
+		
+		int[] arr = new int[num];
+		
+		for(int i=0 ; i<arr.length ; i++) {
+			System.out.printf("%d번째 인덱스 입력 : ", i); // 0번째 인덱스 입력
+			arr[i] = sc.nextInt();
+		}
+		
+		for(int i=arr.length-1 ; i>=0 ; i--) {
+			System.out.print(arr[i] + " ");
+		}
+	}
+	
+	
+	public void example7() {
+		
+		// 배열의 단점 :
+		// 1) 한번 크기가 정해지면 바꿀 수 없다.
+		// 2) 한 가지 자료형만 저장할 수 있다.
+		
+		int[] arr = new int[3];
+		System.out.println("arr 배열의 길이  : " + arr.length);
+		
+		arr = new int[6];
+		System.out.println("arr 배열의 길이  : " + arr.length);
+		
+		// int[] 참조 변수 arr이 
+		// 처음에는 길이가 3인 int 배열을 참조하고 있다가
+		// 길이가 6이 int 배열을 새로 생성하여 arr이 이를 참조하게함.
+		// (arr이 기존 배열 주소에서 새로 생성된 배열 주소를 참조함.)
+		
+	}
+	
+	
+	public void example8() {
+		
+		// 입력 받은 문자열에 특정 단어가 몇번 존재하는지 확인
+		
+		// 문자열 입력 : apple
+		// 검색할 문자 : p
+		// p은/는 2번 작성되어있습니다.
+		
+		// String은 char(문자)가 여러 개 모여있는 문자 배열의 형태이다.
+		// --> 그렇다고 char[]과 같지는 않다.
+		// --> 배열과 비슷하게 사용할 수 있다.
+		//     단, 사용하기 위한 문법 모양은 다르다.
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("문자열 입력 : ");
+		String input = sc.nextLine();
+		
+		System.out.print("검색할 문자 : ");
+		char ch = sc.next().charAt(0);
+		
+		int count = 0; // 검색된 문자의 개수를 세는 용도의 변수
+		
+		// 문자열을 처음부터 끝까지 한 글자씩 접근
+		for(int i=0 ; i<input.length() ; i++ ) {
+			// input.length() : input에 저장된 문자열의 길이
+			
+			if( input.charAt(i) == ch ) {
+				// input 에서 꺼내온 한 글자가 ch와 같다면
+				count++; // count 1증가
+			}
+		}
+		
+		System.out.println(ch + "은/는 " + count + "번 작성되었습니다.");
+		
+	}
+	
+	
+	
+	
 	
 }
