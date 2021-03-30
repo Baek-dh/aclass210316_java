@@ -10,5 +10,7 @@ public class Array2Run {
 		//service.example2();
 		//service.example3();
 		service.example4();
+		
+		
 	}
 }
