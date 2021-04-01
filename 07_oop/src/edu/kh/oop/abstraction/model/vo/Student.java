@@ -11,7 +11,7 @@ public class Student {
 	// 이름, 학교명, 학년, 성별
 	public String name;
 	public String schoolName;
-	public int grade;
+	public static int grade;
 	public char gender;
 	
 	
