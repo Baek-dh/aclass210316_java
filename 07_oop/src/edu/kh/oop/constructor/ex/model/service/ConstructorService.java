@@ -35,8 +35,11 @@ public class ConstructorService {
 		// 각 필드 값을 초기화 후 출력("user03", "pass03", "유저삼", 25, '여') 
 		
 		// 매개변수 있는 생성자 사용
-		User u3 = new User("user03", "pass03", "유저삼", 25, '여');
-		System.out.println("u3 : " + u3.toString());
+		//User u3 = new User("user03", "pass03", "유저삼", 25, '여');
+		//System.out.println("u3 : " + u3.toString());
+		
+		User u4 = new User();
+		
 		
 	}
 	
