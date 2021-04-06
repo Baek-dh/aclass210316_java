@@ -2,7 +2,6 @@ package edu.kh.objarray.practice.model.service;
 
 import java.util.Scanner;
 
-import edu.kh.objarray.model.vo.Book;
 import edu.kh.objarray.practice.model.vo.Employee;
 
 public class EmployeeService {
@@ -194,11 +193,8 @@ public class EmployeeService {
 				break;
 			}
 		}
-		
-		
-		
-		
 	}
+	
 	
 	
 	
