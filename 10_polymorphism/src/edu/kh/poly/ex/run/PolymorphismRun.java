@@ -7,7 +7,10 @@ public class PolymorphismRun {
 		
 		PolymorphismService service = new PolymorphismService();
 		//service.example1();
-		service.example2();
+//		service.example2();
+//		service.example3();
+		//service.example4();
+		service.example5();
 		
 	}
 }
