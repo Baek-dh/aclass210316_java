@@ -64,6 +64,60 @@ public class Student {
 	}
 	
 	
+	// 지역 변수 : 메소드나 제어문 내에서 만 사용 가능한 변수(Stack 영역에 생성)
+	//	-> 특정 지역 내에서 잠시 사용하는 변수
+	//  ex) 입력 받은 값을 임시저장  int num = sc.nextInt();
+	//      반복문 제어용 변수  for(int i=0 ; i<10 ; i++){ }
+	//  	알고리즘을 위한 변수 int sum=0;  /  boolean flag = false;
+	
+	// ----- 필드 (멤버 변수 + 클래스 변수) ----- 
+	// 멤버 변수(인스턴스 변수) : 클래스 내에 작성된 변수 (Heap 영역에 생성)
+	//  -> 객체가 생성되었을 때 객체가 가져야 하는 값을 저장하는 변수 (객체의 속성)
+	//  ex) private String name;  private int age;
+	
+	// 클래스 변수(static 변수) : 클래스 내에 작성된 변수에 static 예약어가 붙은 것 (Static 영역에 생성)
+	//  -> 프로그램 내에서 누구나 공통적으로 사용 가능하며, 
+	//     한 번의 수정으로 사용되어진 모든 부분의 값을 일괄 수정하는 용도의 변수
+	// ex) public static final double PI = 3.141592;
+	//     public static int nationalCode = 81;
+	
+	
+	// 기본자료형 변수  : 자료형이 기본자료형 8개 중 하나인 변수
+	//				 할당된 메모리에 직접 값을 저장을 함.
+	// 				 (byte short int long float double char boolean)
+	// ex) int num = 10;
+	//     private int age;
+	//     for(int i=0 ; i<10 ; i++){}
+	//     public void ex1(int input)
+	
+	// 참조 변수(참조 자료형 변수) : 기본 자료형을 제외한 모든 변수
+	//			주소 저장을 위해 4byte가 할당되며, 객체의 주소를 저장하여 참조하는 형태.
+	// ex) private String name;
+	//     Student std = new Student();
+	//     int[] arr = new int[3];
+	//	   Person[] pArr new Person[3];
+	//	   public boolean equals(Object obj){}
+	
+	// 클래스 == 객체를 만들기 위한 설계도
+	// new 클래스명(); --> 클래스로 이용하여 객체가 생성
+	// == 만들어진 객체는 어떤 클래스의 구조를 가지고 있다 
+	// == 어떤 클래스의 형태를 가지고 있다.
+	// 클래스 == 사용자 정의 자료형
+	
+	
+	// 매개 변수 : 메소드 옆 () 내에 작성되는 변수
+	//			메소드 호출 시 전달 받은 값을 저장할 매개체 역할의 변수
+	//			매개 변수는 해당 메소드의 지역 변수 취급을 당함.
+	// ex) public void int ex1(int num){}
+	//     ex1(10);		// ex1 메소드를 호출하면서 매개 변수 int num에 10을 전달
+	
+	// 	   public boolean equals(Object obj){  }
+	//     std1.equals( std2 );
+	//	   // std1이 참조하고 있는 객체의 equals 메소드를 호출하면서
+	//		  std2가 참조하고 있는 객체의 주소를 매개 변수 Object obj에 전달
+	
+	
+	
 	// Object.equals(Object obj)
 	// 현재 객체와 전달 받은 객체(obj)가 동등한지 확인하는 메소드
 	// (동등 : 객체가 가지고 있는 필드 값이 모두 같으면 동등)

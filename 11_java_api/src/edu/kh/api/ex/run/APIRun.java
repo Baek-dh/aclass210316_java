@@ -7,6 +7,12 @@ public class APIRun {
 		APIService service = new APIService();
 		
 //		service.example1();
-		service.example2();
+//		service.example2();
+//		service.example3();
+//		service.example4();
+//		service.example5();
+//		service.example6();
+//		service.example7();
+		service.example8();
 	}
 }
