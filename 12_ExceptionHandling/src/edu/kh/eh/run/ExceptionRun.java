@@ -8,6 +8,9 @@ public class ExceptionRun {
 //		service.example1();
 //		service.example2();
 //		service.example3();
-		service.example4();
+//		service.example4();
+//		service.example5();
+//		service.example6();
+		service.example7();
 	}
 }

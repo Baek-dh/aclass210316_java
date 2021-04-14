@@ -1,7 +1,10 @@
 package edu.kh.eh.model.service;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import edu.kh.eh.model.exception.SonjeolException;
 
 public class ExceptionService {
 	
@@ -174,7 +177,157 @@ public class ExceptionService {
 		// shift + f2 : api 설명서 검색
 	}
 	
+	
+	
+	public void example5() {
+		Scanner sc = new Scanner(System.in);
+		int sel = 0;
+		do {
+			try {
+				System.out.println("[실행할 메소드 선택 (1,2)]");
+				System.out.print("번호 입력 : ");
+				
+				sel = sc.nextInt();
+				
+				switch(sel) {
+				case 1 : methodA(); break;
+				case 2 : methodB(); break;
+				case 0 : System.out.println("프로그램 종료"); break;
+				default : System.out.println("잘못 입력하셨습니다.");
+				// -> 1,2,0이 아닌 모든 정수
+				}
+			
+			} catch (InputMismatchException e) {
+				// -> 정수가 아닌 입력. ex) "+" "a" "abc" "Hello world"
+				System.out.println("정수 1,2,0 만 입력해주세요.");
+				sc.nextLine(); // 입력 버퍼에 남아있는 잘못 입력한 문자열 제거
+				sel = -1; // 첫 메뉴 출력 시 오류가 발생할 경우 
+						  // sel == 0인 상태 이므로 다른 값을 대입하여 반복문을 계속 진행함.
+			
+			} catch(ArithmeticException e) {
+				System.out.println("0으로 나눌 수 없습니다.");
+		
+			} catch(Exception e) { // 모든 예외 처리 가능
+				System.out.println("뭔지 모르겠지만 예외처리함");
+				// -> 어디서 무슨 예외가 발생했는지 모름
+				e.printStackTrace();
+				// -> 발생한 예외가 무엇이고, 어떤 메소드를 순차적으로 호출했는지 출력
+			}
+			
+		}while(sel != 0);
+		
+	}
 
+	
+	public void methodA() throws ArithmeticException{
+		//  throws : 현재 메소드에서 발생한 예외를  호출부로 던져줌.
+		
+		System.out.println( 2/0 );
+		// -> ArithmeticException : / by zero
+		
+	}
+	
+	
+	public void methodB() throws IOException{
+		
+		// IOException 강제 발생
+		throw new IOException();
+		// throw : 예외 강제 발생 구문
+		// throws : 메소드에서 발생한 예외를 호출부로 던짐
+	}
+	
+	
+	
+	public void example6() throws IOException{
+		// CheckedException : 반드시 예외처리 구문을 작성해야되는 Exception
+		// (오류 발생 -> 예외 처리 방법 기술)
+		// -> 소스코드 또는 if문으로 해결 불가능
+		//   -> 예외 처리 구문을 강제로 작성해야 함.
+		
+		// throw new RuntimeException(); // == UnChekcedException
+		// -> 예외 처리 구문이 강제되지 않아서 빨간줄이 안나타남.
+		
+		// throw new IOException(); // == CheckedException
+		// -> 에러가 발생할 가능성이 있기 때문에
+		//    에러 상황에 대한 조치를 반드시 작성해야 한다.
+		// == 예외 처리가 강제됨. (빨간줄 뜸)
+		
+		
+		// UnCheckedException : 예외처리 구문을 작성하지 않아도 되는 Exception
+		// (실수)
+		// --> UnCheckedException은 모두 RunctimeException의 자식이다!!!!!
+		// --> 개발자가 코드 작성중 또는 사용자가 프로그램 이용 중 실수로 인해 발생하는 예외
+		//    --> 소스코드 수정 또는 if문으로 해결 가능
+		//        == 별도 예외 처리 구문이 강제되지 않음.
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("입력 1 : ");
+		int num1 =  sc.nextInt();
+		
+		System.out.print("입력 2 : ");
+		int num2 =  sc.nextInt();
+		
+		if(num2 == 0) {
+			System.out.println("0으로 나눌 수 없습니다.");
+		}else {
+			System.out.println( num1 / num2 );
+		}
+		
+	}
+	
+	
+	
+	public void example7() {
+		// 사용자 정의 예외 
+		// - Java에서 제공하는 Exception Class만으로 처리할 수 없는 예외를
+		//   사용자가 필요에 의해서 만드는 Exception Class.
+		
+		double money = 1000000.0;
+		
+		int count = 0; // 하락 횟수 카운트
+		
+		try {
+			for(int i=0 ; i<10 ;i++) {
+				// 1 또는 0
+				int ran =  (int)Math.round( Math.random() );
+				//System.out.println(ran);
+				
+				int sign = 0; 
+				
+				if(ran == 1) {
+					sign = +1;
+				}else {
+					sign = -1;
+				}
+				
+				// 1 ~ 20 난수
+				int ran2 = (int)(Math.random() * 20 + 1);
+				// 1% ~ 20% 증가 또는 감소
+				
+				money = money + (money * ( sign* (ran2/100.0) )  );
+				
+				System.out.println(money);
+				
+				
+				if(sign == -1) {
+					count++;
+					
+					if(count == 3) { // 3회 하락 시
+						throw new SonjeolException();
+						// 손절 예외 강제 발생
+					}
+				}
+			}
+			
+		}catch(SonjeolException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+	
+	
 	
 	
 	
