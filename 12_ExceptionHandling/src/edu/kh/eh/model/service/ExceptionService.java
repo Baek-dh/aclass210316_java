@@ -191,7 +191,7 @@ public class ExceptionService {
 				
 				switch(sel) {
 				case 1 : methodA(); break;
-				case 2 : methodB(); break;
+				case 2 : methodB(); break; // methodB() 호출 == methodB 호출부
 				case 0 : System.out.println("프로그램 종료"); break;
 				default : System.out.println("잘못 입력하셨습니다.");
 				// -> 1,2,0이 아닌 모든 정수
@@ -229,7 +229,6 @@ public class ExceptionService {
 	
 	
 	public void methodB() throws IOException{
-		
 		// IOException 강제 발생
 		throw new IOException();
 		// throw : 예외 강제 발생 구문
@@ -313,10 +312,17 @@ public class ExceptionService {
 					count++;
 					
 					if(count == 3) { // 3회 하락 시
+						
 						throw new SonjeolException();
 						// 손절 예외 강제 발생
+						
+						// 굳이 사용자 정의 예외를 사용했는가?
+						// - 예외는 if같은 조건문보다 강제성이 강하다
+						// - 예외 처리를 이용하면 특정 제어문이나 메소드를 강제 종료할 수 있다.
 					}
 				}
+				
+				
 			}
 			
 		}catch(SonjeolException e) {
