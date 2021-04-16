@@ -16,7 +16,10 @@ public class CollectionRun {
 		
 		SetService sService = new SetService();
 		//sService.example1();
-		sService.lotto1();
+//		sService.example2();
+//		sService.lotto1();
+//		sService.lotto2();
+		sService.lotto3();
 		
 		
 		
