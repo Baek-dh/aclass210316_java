@@ -104,12 +104,30 @@ public class PracticeService {
 	=== 로그인 ===
 	아이디 : user01
 	비밀번호 : pass01
-
 	(로그인 메뉴 출력)
 	*/
 	private void login() {
 		System.out.println("=== 로그인 ===");
+		System.out.print("아이디 : ");
+		String id = sc.next();
 		
+		System.out.print("비밀번호 : ");
+		String pwd = sc.next();
+			
+		for(Member mem : memList) {
+						// List<Member> memList
+			
+			// 입력 받은 아이디/비밀번호가 일치하는 회원이 있을 경우
+			if(mem.getMemberId().equals(id) && mem.getMemberPwd().equals(pwd)) {
+				
+				loginMember = mem; // 필드에 선언된 loginMember 변수에 현재 회원 정보를 추가
+			}
+		}
+		
+		// 앞에 for문 수행 후에도 loginMember가 null인 경우 == 아이디, 비밀번호가 일치하는 회원이 리스트에 없음
+		if(loginMember == null) {
+			System.out.println("아이디 또는 비밀번호가 일치하지 않습니다.");
+		}
 	}
 	
 	
@@ -133,7 +151,27 @@ public class PracticeService {
 	private void signUp() {
 		System.out.println("=== 회원 가입 ===");
 		
-	
+		System.out.print("아이디 : ");
+		String input = sc.next();
+		
+		System.out.print("비밀번호 : ");
+		String memberPwd = sc.next();
+		
+		System.out.print("이름 : ");
+		String name = sc.next();
+		
+		for(Member m : memList) { // 회원 목록에서 회원 정보를 하나씩 꺼내옴
+			if( m.getMemberId().equals(input)) { // 꺼내온 회원의 아이디와 입력 받은 아이디가 같은 경우(== 중복)
+				System.out.println("중복되는 아이디가 있습니다. 다시 시도해주세요.");
+				return; // 메소드를 현 시점에서 끝내고 호출한 곳으로 돌아감
+			}
+		}
+		
+		// 앞에 for문 동작 시 return 되지 않은 경우 == 중복 아이디가 없음 
+		Member member = new Member(input, memberPwd, name); // 새로운 회원 객체를 생성
+		memList.add(member); // 생성한 회원 객체를 회원 리스트에 추가
+		System.out.println("회원 가입이 완료되었습니다.");
+		
 		
 	}
 	
@@ -147,9 +185,11 @@ public class PracticeService {
 	*/
 	private void selectMyInfo() {
 		System.out.println("=== 내 정보 조회 ===");
-		
-		
+		System.out.println("아이디 : " + loginMember.getMemberId());
+		System.out.println("이름 : " + loginMember.getName());
+		System.out.println("보유 포인트 : " + loginMember.getPoint());
 	}
+	
 	
 	
 	// 비밀번호 변경
@@ -167,7 +207,26 @@ public class PracticeService {
 	private void changePwd() {
 		System.out.println("=== 비밀번호 변경 ===");
 		
+		System.out.print("현재 비밀번호 : ");
+		String currentPwd = sc.next();
 		
+		System.out.print("새 비밀번호 : ");
+		String newPwd1 = sc.next();
+		
+		System.out.print("새 비밀번호 확인 : ");
+		String newPwd2 = sc.next();
+		sc.nextLine();
+		
+		
+		if(!currentPwd.equals(loginMember.getMemberPwd())) { // 현재 비밀번호가 일치하지 않는 경우
+			System.out.println("현재 비밀번호가 일치하지 않습니다.");
+			
+		}else if(!newPwd1.equals(newPwd2)){ // 새 비밀번호, 새 비밀번호 확인이 일치하지 않는 경우
+			System.out.println("새 비밀번호가 일치하지 않습니다.");
+		}else {
+			loginMember.setMemberPwd(newPwd1); // 로그인한 회원의 비밀번호를 변경
+			System.out.println("비밀번호가 변경되었습니다.");
+		}
 	}
 	
 	
@@ -183,10 +242,17 @@ public class PracticeService {
 	*/
 	private void pointCharge() throws InputMismatchException{
 		System.out.println("=== 포인트 충전 ===");
+		System.out.print("충전할 금액 : ");
+		int point = sc.nextInt();
+		sc.nextLine();
 		
+		System.out.println(point + "포인트가 충전되었습니다.");
 		
+		System.out.println("충전 전 포인트 : " + loginMember.getPoint());
+		
+		loginMember.setPoint(loginMember.getPoint() + point);  // 이전 포인트에 입력 받은 포인트 만큼 추가
+		System.out.println("충전 후 포인트 : " + loginMember.getPoint());
 	}
-	
 	
 	
 	// 로또 구매
@@ -206,7 +272,48 @@ public class PracticeService {
 	private void lottoPurchase() throws InputMismatchException{
 		System.out.println("=== 로또 구매 ===");
 		
+		System.out.println("1000 포인트당 로또 1회 구매 가능");
+		System.out.println("현재 보유 포인트 : " + loginMember.getPoint());
+		System.out.print("사용할 포인트(취소 시 0 입력, 1000 단위로 작성) : ");
+		int usePoint = sc.nextInt();
+		sc.nextLine();
 		
+		
+		if(usePoint == 0) { // 0 입력 시 
+			System.out.println("구매 취소");
+			
+		}else if(usePoint < 1000) {
+			System.out.println("구매를 원할 시 1000 포인트 이상을 작성해주세요."); // 1000 미만 입력 시
+			
+		}else if(usePoint > loginMember.getPoint()) { // 보유 포인트 보다 많이 입력 시
+			
+			System.out.println("보유한 포인트보다 많은 값을 작성할 수 없습니다.");
+			
+		}else {
+			
+			for(int i=0 ; i<usePoint/1000 ; i++) {
+				
+				// 로또 번호 한 줄 생성
+				Set<Integer> lotto = new TreeSet<Integer>();
+				// Set : 순서 X 중복 X ,  TreeSet : 중복 X, 오름차순 정렬
+			
+				while(true) {
+					lotto.add(  (int)(Math.random() * 45 +1)  );
+					
+					if(lotto.size() == 6) break;
+				}
+				
+				System.out.println(lotto); // 로또 번호 출력
+				
+				// 로그인한 회원의 PurchaseLotto리스트에 생성된 로또 번호 한 줄 추가
+				loginMember.getPurchaseLotto().add(lotto); 
+				// setPurchaseLotto( new ArrayList<Set<Integer>>()  )
+			
+			}
+			
+			// 로그인한 회원의 포인트에서 사용한 포인트 차감.
+			loginMember.setPoint( loginMember.getPoint() - (usePoint / 1000 * 1000)   );
+		}
 	}
 	
 	
@@ -220,7 +327,13 @@ public class PracticeService {
 	private void checkLotto() {
 		System.out.println("=== 구매한 로또 번호 확인 ===");
 		
+		for(Set<Integer> lotto : loginMember.getPurchaseLotto()) {
+			System.out.println(lotto);
+		}
 	}
+	
+	
+	
 	
 	
 }
