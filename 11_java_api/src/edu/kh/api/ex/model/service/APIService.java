@@ -11,8 +11,8 @@ public class APIService {
 
 	public void example1() {
 		
-		Student std1 = new Student("È«±æµ¿", 3, 5);
-		Student std2 = new Student("È«±æµ¿", 3, 5);
+		Student std1 = new Student("í™ê¸¸ë™", 3, 5);
+		Student std2 = new Student("í™ê¸¸ë™", 3, 5);
 		
 		System.out.println(std1);
 		System.out.println( std1.equals(std2)  ); // true
@@ -20,8 +20,8 @@ public class APIService {
 		System.out.println( std1.hashCode() ); 
 		System.out.println( std2.hashCode() ); 
 		System.out.println( std1.hashCode() == std2.hashCode() ); 
-		// equals() ¿À¹ö¶óÀÌµù ½Ã hashCode() ¿À¹ö¶óÀÌµù ÇØ¾ßµÈ´Ù
-		// -> equals()°¡ trueÀÎ °æ¿ì µÎ °´Ã¼ÀÇ hashCode()µµ °°¾Æ¾ß ÇÑ´Ù.
+		// equals() ì˜¤ë²„ë¼ì´ë”© ì‹œ hashCode() ì˜¤ë²„ë¼ì´ë”© í•´ì•¼ëœë‹¤
+		// -> equals()ê°€ trueì¸ ê²½ìš° ë‘ ê°ì²´ì˜ hashCode()ë„ ê°™ì•„ì•¼ í•œë‹¤.
 		
 	}
 	
@@ -30,32 +30,32 @@ public class APIService {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		// String ¸®ÅÍ·² ÀÛ¼º ½Ã ¸Ş¸ğ¸®±¸Á¶
-		// - String ¸®ÅÍ·²·Î »ı¼ºµÈ ¹®ÀÚ¿­Àº String PoolÀÌ¶ó´Â Heap¿µ¿ª °ø°£¿¡ »ı¼ºµÊ.
+		// String ë¦¬í„°ëŸ´ ì‘ì„± ì‹œ ë©”ëª¨ë¦¬êµ¬ì¡°
+		// - String ë¦¬í„°ëŸ´ë¡œ ìƒì„±ëœ ë¬¸ìì—´ì€ String Poolì´ë¼ëŠ” Heapì˜ì—­ ê³µê°„ì— ìƒì„±ë¨.
 		
 		String str1 = "abc";
 		String str2 = "abc";
 		String str3 = new String("abc");
 		
-		System.out.print("abc ÀÔ·Â : ");
-		String str4 = sc.next(); // abc ÀÔ·Â
+		System.out.print("abc ì…ë ¥ : ");
+		String str4 = sc.next(); // abc ì…ë ¥
 		
 		
 		
 		System.out.println(str1 == str2); // true
-		// String ¸®ÅÍ·²·Î "abc"°¡ ÃÊ±âÈ­µÈ str1, str2´Â
-		// String Pool¿¡ ÀÖ´Â °°Àº "abc" ÁÖ¼Ò¸¦ ÂüÁ¶ÇÑ´Ù.
+		// String ë¦¬í„°ëŸ´ë¡œ "abc"ê°€ ì´ˆê¸°í™”ëœ str1, str2ëŠ”
+		// String Poolì— ìˆëŠ” ê°™ì€ "abc" ì£¼ì†Œë¥¼ ì°¸ì¡°í•œë‹¤.
 		
 		System.out.println(str1 == str3); // false
 		System.out.println(str1 == str4); // false
 		
 		
-		// str1°ú str2°¡ ÂüÁ¶ÇÏ´Â ÁÖ¼Ò°¡ ½ÇÁ¦·Î °°ÀºÁö È®ÀÎ
+		// str1ê³¼ str2ê°€ ì°¸ì¡°í•˜ëŠ” ì£¼ì†Œê°€ ì‹¤ì œë¡œ ê°™ì€ì§€ í™•ì¸
 		// -> System.identityHashCode()
-		//  -> ÀÚ¹Ù´Â ½ÇÁ¦ ¸Ş¸ğ¸® ÁÖ¼Ò¸¦ º¼¼ö´Â ¾øÁö¸¸
-		//     ¸Ş¸ğ¸® ÁÖ¼Ò¸¦ ÀÌ¿ëÇØ ÀÏÁ¤ÇÑ ÇüÅÂ¿¡ ¼ıÀÚ¸¦ ¹İÈ¯ÇÏ´Â
-		//     identityHashCode()¶ó´Â °ÍÀ» º¼¼ö ÀÖ´Ù. 
-		//  == ½ÇÁ¦ ÁÖ¼Ò¶ó°í »ı°¢ÇØµµ ¹«¹æÇÔ.
+		//  -> ìë°”ëŠ” ì‹¤ì œ ë©”ëª¨ë¦¬ ì£¼ì†Œë¥¼ ë³¼ìˆ˜ëŠ” ì—†ì§€ë§Œ
+		//     ë©”ëª¨ë¦¬ ì£¼ì†Œë¥¼ ì´ìš©í•´ ì¼ì •í•œ í˜•íƒœì— ìˆ«ìë¥¼ ë°˜í™˜í•˜ëŠ”
+		//     identityHashCode()ë¼ëŠ” ê²ƒì„ ë³¼ìˆ˜ ìˆë‹¤. 
+		//  == ì‹¤ì œ ì£¼ì†Œë¼ê³  ìƒê°í•´ë„ ë¬´ë°©í•¨.
 		System.out.println("std1 : " + System.identityHashCode(str1));
 		System.out.println("std2 : " + System.identityHashCode(str2));
 		System.out.println("std3 : " + System.identityHashCode(str3));
@@ -65,29 +65,29 @@ public class APIService {
 	
 	public void example3() {
 		
-		// StringÀÇ ºÒº¯¼º(immutable) 
-		//		<-> °¡º¯¼º(mutable)
+		// Stringì˜ ë¶ˆë³€ì„±(immutable) 
+		//		<-> ê°€ë³€ì„±(mutable)
 		
-		// String ÀÚ·áÇüÀÇ °ªÀº ÇÑ¹ø ¸Ş¸ğ¸®¿¡ ÀúÀåµÇ¸é Àı´ë·Î º¯ÇÒ ¼ö ¾ø´Ù. == ºÒº¯¼º
-		// String °´Ã¼°¡ º¯ÇÏ°Ô µÉ °æ¿ì
-		// ±âÁ¸¿¡ ÂüÁ¶ÇÏ°íÀÖ´ø String °´Ã¼°¡ º¯ÇÑ °ÍÀÌ ¾Æ´Ñ
-		// »õ·Î¿î String °´Ã¼°¡ ¸Ş¸ğ¸®¿¡ »ı¼ºµÇ¾î ±× ÁÖ¼Ò¸¦ ÂüÁ¶ÇÔ.
+		// String ìë£Œí˜•ì˜ ê°’ì€ í•œë²ˆ ë©”ëª¨ë¦¬ì— ì €ì¥ë˜ë©´ ì ˆëŒ€ë¡œ ë³€í•  ìˆ˜ ì—†ë‹¤. == ë¶ˆë³€ì„±
+		// String ê°ì²´ê°€ ë³€í•˜ê²Œ ë  ê²½ìš°
+		// ê¸°ì¡´ì— ì°¸ì¡°í•˜ê³ ìˆë˜ String ê°ì²´ê°€ ë³€í•œ ê²ƒì´ ì•„ë‹Œ
+		// ìƒˆë¡œìš´ String ê°ì²´ê°€ ë©”ëª¨ë¦¬ì— ìƒì„±ë˜ì–´ ê·¸ ì£¼ì†Œë¥¼ ì°¸ì¡°í•¨.
 		
-		// String ºÒº¯¼ºÀ¸·Î ÀÎÇØ ¹ß»ıÇÏ´Â ¹®Á¦Á¡
-		// - ¸¹Àº ¾çÀÇ String °´Ã¼°¡ ¹İº¹ÀûÀ¸·Î ÀÌ¾î¾²±â, »ı¼º µîÀÌ ÀÌ·ç¾îÁö°Ô µÇ¸é
-		//   ±× ¶§ ¸¶´Ù »õ·Î¿î String °´Ã¼°¡ »ı¼ºµÇ±â ¶§¹®¿¡
-		//   ½ÉÇÑ ¸Ş¸ğ¸® ¼Òºñ¸¦ ¾ß±âÇÑ´Ù.
+		// String ë¶ˆë³€ì„±ìœ¼ë¡œ ì¸í•´ ë°œìƒí•˜ëŠ” ë¬¸ì œì 
+		// - ë§ì€ ì–‘ì˜ String ê°ì²´ê°€ ë°˜ë³µì ìœ¼ë¡œ ì´ì–´ì“°ê¸°, ìƒì„± ë“±ì´ ì´ë£¨ì–´ì§€ê²Œ ë˜ë©´
+		//   ê·¸ ë•Œ ë§ˆë‹¤ ìƒˆë¡œìš´ String ê°ì²´ê°€ ìƒì„±ë˜ê¸° ë•Œë¬¸ì—
+		//   ì‹¬í•œ ë©”ëª¨ë¦¬ ì†Œë¹„ë¥¼ ì•¼ê¸°í•œë‹¤.
 		
 		String str1 = "abc";
 		
-		// "def" ¹®ÀÚ¿­ Ãß°¡ Àü str1ÀÇ ÂüÁ¶ ÁÖ¼Ò È®ÀÎ
-		System.out.println("def Ãß°¡ Àü : " + System.identityHashCode(str1));
+		// "def" ë¬¸ìì—´ ì¶”ê°€ ì „ str1ì˜ ì°¸ì¡° ì£¼ì†Œ í™•ì¸
+		System.out.println("def ì¶”ê°€ ì „ : " + System.identityHashCode(str1));
 		
 		str1 += "def";
 		System.out.println(str1); // abcdef
 		
-		// "def" ¹®ÀÚ¿­ Ãß°¡ ÈÄ str1ÀÇ ÂüÁ¶ ÁÖ¼Ò È®ÀÎ
-		System.out.println("def Ãß°¡ ÈÄ : " + System.identityHashCode(str1));
+		// "def" ë¬¸ìì—´ ì¶”ê°€ í›„ str1ì˜ ì°¸ì¡° ì£¼ì†Œ í™•ì¸
+		System.out.println("def ì¶”ê°€ í›„ : " + System.identityHashCode(str1));
 		
 		/*String result = "";
 		for(int i=0 ; i<10000 ; i++) {
@@ -99,73 +99,73 @@ public class APIService {
 	
 	
 	public void example4() {
-		// String ºÒº¯¼º ¹®Á¦ ÇØ°á
+		// String ë¶ˆë³€ì„± ë¬¸ì œ í•´ê²°
 		// -> StringBuffer, StringBuilder
 		
-		// StringBuffer, StringBuilder (mutable, °¡º¯¼º)
-		// -> ¹®ÀÚ¿­ °ªÀÌ º¯ÇØµµ °°Àº °´Ã¼ ³»¿¡¼­ º¯È­°¡ ÀÌ·ç¾îÁü.
+		// StringBuffer, StringBuilder (mutable, ê°€ë³€ì„±)
+		// -> ë¬¸ìì—´ ê°’ì´ ë³€í•´ë„ ê°™ì€ ê°ì²´ ë‚´ì—ì„œ ë³€í™”ê°€ ì´ë£¨ì–´ì§.
 		
-		// µÎ Å¬·¡½º´Â ÀÌ¸§Àº ´Ù¸£Áö¸¸ ±â´ÉÀº ¿ÏÀüÈ÷ µ¿ÀÏÇÏ´Ù.
+		// ë‘ í´ë˜ìŠ¤ëŠ” ì´ë¦„ì€ ë‹¤ë¥´ì§€ë§Œ ê¸°ëŠ¥ì€ ì™„ì „íˆ ë™ì¼í•˜ë‹¤.
 		
-		// Â÷ÀÌÁ¡ : StringBuffer´Â µ¿±âÈ­¸¦ Áö¿øÇÑ´Ù.
-		//		  StringBuilder´Â µ¿±âÈ­¸¦ Áö¿øÇÏÁö ¾Ê´Â´Ù.
+		// ì°¨ì´ì  : StringBufferëŠ” ë™ê¸°í™”ë¥¼ ì§€ì›í•œë‹¤.
+		//		  StringBuilderëŠ” ë™ê¸°í™”ë¥¼ ì§€ì›í•˜ì§€ ì•ŠëŠ”ë‹¤.
 		
-		// Buffer: ÄÄÇ»ÅÍ°¡ µ¥ÀÌÅÍ¸¦ ÀúÀåÇÏ´Â ¸Ş¸ğ¸® ¿µ¿ª (ÀÓ½Ã ÀúÀå)
-		// (ScannerÀÇ ÀÔ·Â¹öÆÛ : Å°º¸µå¿¡¼­ ÀÔ·ÂµÈ °ªÀ» ÀÓ½Ã ÀúÀåÇÏ´Â ¸Ş¸ğ¸® ¿µ¿ª)
+		// Buffer: ì»´í“¨í„°ê°€ ë°ì´í„°ë¥¼ ì €ì¥í•˜ëŠ” ë©”ëª¨ë¦¬ ì˜ì—­ (ì„ì‹œ ì €ì¥)
+		// (Scannerì˜ ì…ë ¥ë²„í¼ : í‚¤ë³´ë“œì—ì„œ ì…ë ¥ëœ ê°’ì„ ì„ì‹œ ì €ì¥í•˜ëŠ” ë©”ëª¨ë¦¬ ì˜ì—­)
 		
-		// Buffering : ¹öÆÛ¿¡ µ¥ÀÌÅÍ¸¦ Ã¤¿ì´Â µ¿ÀÛ
-		// -> ÇÁ·Î±×·¥Àº ¹öÆÛ¸µÀ» ÅëÇØ Ã¤¿öÁø µ¥ÀÌÅÍ¸¦ Àç»ıÇÏ°Å³ª Ãâ·ÂÇÑ´Ù.
+		// Buffering : ë²„í¼ì— ë°ì´í„°ë¥¼ ì±„ìš°ëŠ” ë™ì‘
+		// -> í”„ë¡œê·¸ë¨ì€ ë²„í¼ë§ì„ í†µí•´ ì±„ì›Œì§„ ë°ì´í„°ë¥¼ ì¬ìƒí•˜ê±°ë‚˜ ì¶œë ¥í•œë‹¤.
 		
-		StringBuffer sb1 = new StringBuffer(); // 16Ä­ Â¥¸® StringBuffer°´Ã¼ »ı¼º
-		//sb1 = "abc"; // String Ã³·³ °ª ´ëÀÔ ºÒ°¡´É
+		StringBuffer sb1 = new StringBuffer(); // 16ì¹¸ ì§œë¦¬ StringBufferê°ì²´ ìƒì„±
+		//sb1 = "abc"; // String ì²˜ëŸ¼ ê°’ ëŒ€ì… ë¶ˆê°€ëŠ¥
 		
-		System.out.println("abc Ãß°¡ Àü ¿ë·® : " + sb1.capacity());
-		System.out.println("abc Ãß°¡ Àü ÁÖ¼Ò : " + System.identityHashCode(sb1));
+		System.out.println("abc ì¶”ê°€ ì „ ìš©ëŸ‰ : " + sb1.capacity());
+		System.out.println("abc ì¶”ê°€ ì „ ì£¼ì†Œ : " + System.identityHashCode(sb1));
 		
-		sb1.append("abc"); // append(°ª) : ¹®ÀÚ¿­ Á¦ÀÏ µÚ¿¡ Ãß°¡
+		sb1.append("abc"); // append(ê°’) : ë¬¸ìì—´ ì œì¼ ë’¤ì— ì¶”ê°€
 		
-		System.out.println("abc Ãß°¡ ÈÄ ¿ë·® : " + sb1.capacity());
-		System.out.println("abc Ãß°¡ ÈÄ ÁÖ¼Ò : " + System.identityHashCode(sb1));
+		System.out.println("abc ì¶”ê°€ í›„ ìš©ëŸ‰ : " + sb1.capacity());
+		System.out.println("abc ì¶”ê°€ í›„ ì£¼ì†Œ : " + System.identityHashCode(sb1));
 		
-		sb1.append("defghijklmnopqrstuvwxyz"); // 23 ±ÛÀÚ Ãß°¡ -> 16Ä­ Å©±â ³Ñ¾î¼¶.
+		sb1.append("defghijklmnopqrstuvwxyz"); // 23 ê¸€ì ì¶”ê°€ -> 16ì¹¸ í¬ê¸° ë„˜ì–´ì„¬.
 		
-		System.out.println(sb1.toString()); // ¹®ÀÚ¿­ÀÌ µÚ¿¡ Ãß°¡ µÇ¾ú³ª È®ÀÎ
-		System.out.println("¿ë·® Áõ°¡ È®ÀÎ : " + sb1.capacity());
-		System.out.println("ÁÖ¼Ò º¯È­ È®ÀÎ : " + System.identityHashCode(sb1));
+		System.out.println(sb1.toString()); // ë¬¸ìì—´ì´ ë’¤ì— ì¶”ê°€ ë˜ì—ˆë‚˜ í™•ì¸
+		System.out.println("ìš©ëŸ‰ ì¦ê°€ í™•ì¸ : " + sb1.capacity());
+		System.out.println("ì£¼ì†Œ ë³€í™” í™•ì¸ : " + System.identityHashCode(sb1));
 		
-		// StringBufferÀÇ °ªÀ» StringÀ¸·Î º¯È¯ÇÏ´Â ¹æ¹ı
+		// StringBufferì˜ ê°’ì„ Stringìœ¼ë¡œ ë³€í™˜í•˜ëŠ” ë°©ë²•
 		String str = sb1.toString();
 		
 		
 		//////////////////////////////////////////////////////////
 		
-		StringBuilder sb2 = new StringBuilder(5); // 5Ä­ Â¥¸® StringBuilder °´Ã¼ »ı¼º
+		StringBuilder sb2 = new StringBuilder(5); // 5ì¹¸ ì§œë¦¬ StringBuilder ê°ì²´ ìƒì„±
 		
-		System.out.println("Ãß°¡ Àü ¿ë·® : " + sb2.capacity());
+		System.out.println("ì¶”ê°€ ì „ ìš©ëŸ‰ : " + sb2.capacity());
 		
-		sb2.append("Hello World!!"); // 13±ÛÀÚ
+		sb2.append("Hello World!!"); // 13ê¸€ì
 		
-		System.out.println("Ãß°¡ ÈÄ ¿ë·® : " + sb2.capacity());
+		System.out.println("ì¶”ê°€ í›„ ìš©ëŸ‰ : " + sb2.capacity());
 		System.out.println(sb2.toString());
 		
-		// StringBuffer¿Í StringBuilder »ç¿ë¹ıÀº µ¿ÀÏ
+		// StringBufferì™€ StringBuilder ì‚¬ìš©ë²•ì€ ë™ì¼
 		
 	}
 	
 	public void example5() {
-		// String¿¡¼­ Á¦°øÇÏ´Â À¯¿ëÇÑ ¸Ş¼Òµå
+		// Stringì—ì„œ ì œê³µí•˜ëŠ” ìœ ìš©í•œ ë©”ì†Œë“œ
 		
 		// boolean contains(CharSequence s)
-		// Æ¯Á¤ ´Ü¾î°¡ ¹®ÀÚ¿­¿¡ Æ÷ÇÔµÇ¾î ÀÖ´ÂÁö È®ÀÎÇÏ¿© ÀÖÀ¸¸é true / ¾øÀ¸¸é false
+		// íŠ¹ì • ë‹¨ì–´ê°€ ë¬¸ìì—´ì— í¬í•¨ë˜ì–´ ìˆëŠ”ì§€ í™•ì¸í•˜ì—¬ ìˆìœ¼ë©´ true / ì—†ìœ¼ë©´ false
 		
-		String str1 = "µ¿ÇØ¹°°ú ¹éµÎ»êÀÌ ...";
-		System.out.println( str1.contains("¹éµÎ»ê")  );
+		String str1 = "ë™í•´ë¬¼ê³¼ ë°±ë‘ì‚°ì´ ...";
+		System.out.println( str1.contains("ë°±ë‘ì‚°")  );
 		
 		// int	indexOf(String str)
-		// Æ¯Á¤ ¹®ÀÚ¿­ÀÌ ½ÃÀÛÇÏ´Â ÀÎµ¦½º¸¦ ¹İÈ¯. ¾øÀ¸¸é -1À» ¹İÈ¯
-		// Áßº¹µÇ´Â ¹®ÀÚ¿­ÀÌ ÀÖ´Ù¸é 
-		// ¾Õ¿¡¼­ºÎÅÍ °Ë»öÇØ¼­ Ã¹ ¹øÂ° °Ë»öµÇ´Â ÀÎµ¦½º¸¦ ¹İÈ¯ÇÑ´Ù.
-		// <-> lastIndexOf(String str) (µÚ¿¡¼­ ºÎÅÍ)
+		// íŠ¹ì • ë¬¸ìì—´ì´ ì‹œì‘í•˜ëŠ” ì¸ë±ìŠ¤ë¥¼ ë°˜í™˜. ì—†ìœ¼ë©´ -1ì„ ë°˜í™˜
+		// ì¤‘ë³µë˜ëŠ” ë¬¸ìì—´ì´ ìˆë‹¤ë©´ 
+		// ì•ì—ì„œë¶€í„° ê²€ìƒ‰í•´ì„œ ì²« ë²ˆì§¸ ê²€ìƒ‰ë˜ëŠ” ì¸ë±ìŠ¤ë¥¼ ë°˜í™˜í•œë‹¤.
+		// <-> lastIndexOf(String str) (ë’¤ì—ì„œ ë¶€í„°)
 		
 		String str2 = "abcdef abcdef";
 		System.out.println( str2.indexOf("c")   ); // 2
@@ -174,11 +174,11 @@ public class APIService {
 		System.out.println( str2.indexOf("z")   ); // -1
 		
 		
-		// String[]	split(String ±¸ºĞÀÚ)
-		// ±¸ºĞÀÚ¸¦ ±âÁØÀ¸·Î ÇÏ³ªÀÇ ¹®ÀÚ¿­À» ºĞ¸®ÇÏ¿© String[] ÇüÅÂ·Î ¹İÈ¯
-		// ex) »ç°ú,¹Ù³ª³ª,Æ÷µµ  ->  "," ±âÁØÀ¸·Î ºĞ¸®ÇÏ¸é
-		//    [0] = »ç°ú, [1] = ¹Ù³ª³ª, [2] = Æ÷µµ
-		String str3 = "»ç°ú,,,¹Ù³ª³ª,,,Æ÷µµ,,,ÆÄÀÎ¾ÖÇÃ,,,º¹¼ş¾Æ,,,¸á·Ğ,,,¿À·»Áö";
+		// String[]	split(String êµ¬ë¶„ì)
+		// êµ¬ë¶„ìë¥¼ ê¸°ì¤€ìœ¼ë¡œ í•˜ë‚˜ì˜ ë¬¸ìì—´ì„ ë¶„ë¦¬í•˜ì—¬ String[] í˜•íƒœë¡œ ë°˜í™˜
+		// ex) ì‚¬ê³¼,ë°”ë‚˜ë‚˜,í¬ë„  ->  "," ê¸°ì¤€ìœ¼ë¡œ ë¶„ë¦¬í•˜ë©´
+		//    [0] = ì‚¬ê³¼, [1] = ë°”ë‚˜ë‚˜, [2] = í¬ë„
+		String str3 = "ì‚¬ê³¼,,,ë°”ë‚˜ë‚˜,,,í¬ë„,,,íŒŒì¸ì• í”Œ,,,ë³µìˆ­ì•„,,,ë©œë¡ ,,,ì˜¤ë Œì§€";
 		
 		String[] arr = str3.split(",,,");
 		
@@ -187,74 +187,74 @@ public class APIService {
 		}
 		
 		// static String join(CharSequence delimiter, CharSequence... elements)
-		// ¹è¿­À» delimiter(±¸ºĞÀÚ)¸¦ ÀÌ¿ëÇÏ¿© ÇÏ³ªÀÇ StringÀ¸·Î ¹İÈ¯
+		// ë°°ì—´ì„ delimiter(êµ¬ë¶„ì)ë¥¼ ì´ìš©í•˜ì—¬ í•˜ë‚˜ì˜ Stringìœ¼ë¡œ ë°˜í™˜
 		
 		String str4 = String.join("/", arr);
-					// arr ¹è¿­ ¿ä¼ÒµéÀ» "/"¸¦ ±¸ºĞÀÚ·Î ÇÏ¿© ÇÏ³ªÀÇ ¹®ÀÚ¿­·Î ¸¸µé¾î ¹İÈ¯
+					// arr ë°°ì—´ ìš”ì†Œë“¤ì„ "/"ë¥¼ êµ¬ë¶„ìë¡œ í•˜ì—¬ í•˜ë‚˜ì˜ ë¬¸ìì—´ë¡œ ë§Œë“¤ì–´ ë°˜í™˜
 		System.out.println(str4);
 		
 		
 		// StringTokenizer
-		// - java.util¿¡ ÀÖÀ½.
-		// ¹®ÀÚ¿­À» ÁöÁ¤ÇÑ ±¸ºĞÀÚ·Î ÂÉ°³¼­ ÇÏ³ª¾¿ ¼ø¼­´ë·Î ¹İÈ¯ÇÏ´Â °´Ã¼
-		// (´Ü, ±¸ºĞÀÚ°¡ ÁöÁ¤µÇÁö ¾ÊÀ¸¸é °ø¹é¹®ÀÚ°¡ ±¸ºĞÀÚ°¡ µÊ.)
-		// (°ø¹é¹®ÀÚ : ¶ç¾î¾²±â, ¿£ÅÍ, ÅÇ µî)
+		// - java.utilì— ìˆìŒ.
+		// ë¬¸ìì—´ì„ ì§€ì •í•œ êµ¬ë¶„ìë¡œ ìª¼ê°œì„œ í•˜ë‚˜ì”© ìˆœì„œëŒ€ë¡œ ë°˜í™˜í•˜ëŠ” ê°ì²´
+		// (ë‹¨, êµ¬ë¶„ìê°€ ì§€ì •ë˜ì§€ ì•Šìœ¼ë©´ ê³µë°±ë¬¸ìê°€ êµ¬ë¶„ìê°€ ë¨.)
+		// (ê³µë°±ë¬¸ì : ë„ì–´ì“°ê¸°, ì—”í„°, íƒ­ ë“±)
 		
 		String str5 = "aa bb cc";
 		StringTokenizer st1 = new StringTokenizer(str5);
-		// -> °ø¹é¹®ÀÚ¸¦ ±âÁØÀ¸·Î ³ª´²Áü
+		// -> ê³µë°±ë¬¸ìë¥¼ ê¸°ì¤€ìœ¼ë¡œ ë‚˜ëˆ ì§
 		
 		while(st1.hasMoreTokens()) {
-			// hasMoreTokens() : ÅäÅ« ´õ °¡Áö°í ÀÖ³Ä?
-			//					 ´ÙÀ½ ÅäÅ«ÀÌ ÀÖ´ÂÁö °Ë»çÇÏ´Â ¸Ş¼Òµå
+			// hasMoreTokens() : í† í° ë” ê°€ì§€ê³  ìˆëƒ?
+			//					 ë‹¤ìŒ í† í°ì´ ìˆëŠ”ì§€ ê²€ì‚¬í•˜ëŠ” ë©”ì†Œë“œ
 			
 			System.out.println(st1.nextToken());
-			// nextToken() : ´ÙÀ½ ÅäÅ«À» ¾ò¾î¿È.
+			// nextToken() : ë‹¤ìŒ í† í°ì„ ì–»ì–´ì˜´.
 		}
 		
 		
 		String str6 = "AA/BB,CC~DD";
 		StringTokenizer st2 = new StringTokenizer(str6, "/,~" );
-		// ¹®ÀÚ¿­¿¡¼­ "/,~" 3°³ Áß ÇÏ³ª¶óµµ ÀÏÄ¡ÇÏ¸é ÂÉ°³ÁÜ
+		// ë¬¸ìì—´ì—ì„œ "/,~" 3ê°œ ì¤‘ í•˜ë‚˜ë¼ë„ ì¼ì¹˜í•˜ë©´ ìª¼ê°œì¤Œ
 		
 		while(st2.hasMoreTokens()) {
 			System.out.println(st2.nextToken());
 		}
 		
-		// StringTokenizer´Â 
-		// split()º¸´Ù ±¸ºĞÀÚ¸¦ ´Ù¾çÇÏ°Ô ÁöÁ¤ÇÒ ¼ö ÀÖ°í,
-		// ¼Óµµµµ ¹Ì¼¼ÇÏ°Ô ´õ ºü¸§. (´Ù·®ÀÇ µ¥ÀÌÅÍ°¡ ÀÖÀ» ½Ã ÈÎ¾À ºü¸§)
+		// StringTokenizerëŠ” 
+		// split()ë³´ë‹¤ êµ¬ë¶„ìë¥¼ ë‹¤ì–‘í•˜ê²Œ ì§€ì •í•  ìˆ˜ ìˆê³ ,
+		// ì†ë„ë„ ë¯¸ì„¸í•˜ê²Œ ë” ë¹ ë¦„. (ë‹¤ëŸ‰ì˜ ë°ì´í„°ê°€ ìˆì„ ì‹œ í›¨ì”¬ ë¹ ë¦„)
 		
 	}
 	
 	
 	public void example6() {
-		// ³¯Â¥ °ü·Ã Å¬·¡½º  Date
-		// - java.util¿¡ Á¸ÀçÇÔ.
-		// - ¸¹Àº »ı¼ºÀÚ, ¸Ş¼Òµå°¡ ´õÀÌ»ó »ç¿ëµÇÁö ¾Ê´Â ¿¾³¯ Å¬·¡½º
-		// -> ¿ì¸®°¡ ÃßÈÄ »ç¿ëÇÒ DB Date¿Í °ü°è°¡ ÀÖÀ½
+		// ë‚ ì§œ ê´€ë ¨ í´ë˜ìŠ¤  Date
+		// - java.utilì— ì¡´ì¬í•¨.
+		// - ë§ì€ ìƒì„±ì, ë©”ì†Œë“œê°€ ë”ì´ìƒ ì‚¬ìš©ë˜ì§€ ì•ŠëŠ” ì˜›ë‚  í´ë˜ìŠ¤
+		// -> ìš°ë¦¬ê°€ ì¶”í›„ ì‚¬ìš©í•  DB Dateì™€ ê´€ê³„ê°€ ìˆìŒ
 		
 		Date date1 = new Date();
-		// Date() ±âº»»ı¼ºÀÚ : ÇöÀç ³¯Â¥, ½Ã°£ Á¤º¸°¡ °´Ã¼¿¡ ±â·ÏµÊ.
+		// Date() ê¸°ë³¸ìƒì„±ì : í˜„ì¬ ë‚ ì§œ, ì‹œê°„ ì •ë³´ê°€ ê°ì²´ì— ê¸°ë¡ë¨.
 		System.out.println(date1);
 		
 
-		// Date(long date) »ı¼ºÀÚ
-		// 1970³â 1¿ù 1ÀÏ, 00:00 GMT¸¦ ±âÁØÀ¸·Î
-		// -> ÇÑ±¹¿¡¼­´Â KST·Î Ç¥½ÃµÊ. ¿Ö? OS°¡ ÇÑ±¹ OS¶ó ½Ã°£ ±âÁØÀÌ Á¤ÇØÁ® ÀÖÀ½
+		// Date(long date) ìƒì„±ì
+		// 1970ë…„ 1ì›” 1ì¼, 00:00 GMTë¥¼ ê¸°ì¤€ìœ¼ë¡œ
+		// -> í•œêµ­ì—ì„œëŠ” KSTë¡œ í‘œì‹œë¨. ì™œ? OSê°€ í•œêµ­ OSë¼ ì‹œê°„ ê¸°ì¤€ì´ ì •í•´ì ¸ ìˆìŒ
 		
-		// ¸î ¹Ğ¸®¼¼ÄÁµå Áö³­ ½Ã°£ÀÌ °´Ã¼¿¡ ±â·ÏµÊ.
-		// ¹Ğ¸® ¼¼ÄÁµå(¹Ğ¸®ÃÊ, ms) == 1/1000 ÃÊ
-		// 1ms == 0.001ÃÊ
+		// ëª‡ ë°€ë¦¬ì„¸ì»¨ë“œ ì§€ë‚œ ì‹œê°„ì´ ê°ì²´ì— ê¸°ë¡ë¨.
+		// ë°€ë¦¬ ì„¸ì»¨ë“œ(ë°€ë¦¬ì´ˆ, ms) == 1/1000 ì´ˆ
+		// 1ms == 0.001ì´ˆ
 		Date date2 = new Date(0L);
 		System.out.println(date2);
-		// ¿ì¸®³ª¶ó ±âÁØÀ¸·Î´Â 1970/1/1 09:00 Ãâ·ÂµÊ
+		// ìš°ë¦¬ë‚˜ë¼ ê¸°ì¤€ìœ¼ë¡œëŠ” 1970/1/1 09:00 ì¶œë ¥ë¨
 		
-		// 1970/1/2 09:00 Ãâ·Â
+		// 1970/1/2 09:00 ì¶œë ¥
 		Date date3 = new Date( 1000L * 60 * 60 * 24 );
 		System.out.println(date3);
 		
-		// ÇöÀç ½Ã°£À¸·Î ºÎÅÍ 24½Ã°£ Àü Ãâ·Â
+		// í˜„ì¬ ì‹œê°„ìœ¼ë¡œ ë¶€í„° 24ì‹œê°„ ì „ ì¶œë ¥
 		Date date4 = new Date( System.currentTimeMillis() - (1000L * 60 * 60 * 24 )  );
 		
 		System.out.println(System.currentTimeMillis()  );
@@ -262,27 +262,27 @@ public class APIService {
 		System.out.println(date4);
 		
 		
-		// SimpleDateFormat Å¬·¡½º
+		// SimpleDateFormat í´ë˜ìŠ¤
 		// - java.text
-		// - ³¯Â¥¸¦ ¿øÇÏ´Â Çü½ÄÀ¸·Î °£´ÜÈ÷ º¯°æÇÏ´Â ±â´ÉÀ» Á¦°ø
+		// - ë‚ ì§œë¥¼ ì›í•˜ëŠ” í˜•ì‹ìœ¼ë¡œ ê°„ë‹¨íˆ ë³€ê²½í•˜ëŠ” ê¸°ëŠ¥ì„ ì œê³µ
 		
 		SimpleDateFormat sdf 
-			= new SimpleDateFormat("G yyyy³â MM¿ù ddÀÏ E¿äÀÏ HH½Ã mmºĞ ssÃÊ");
+			= new SimpleDateFormat("G yyyyë…„ MMì›” ddì¼ Eìš”ì¼ HHì‹œ mmë¶„ ssì´ˆ");
 		
 		String text = sdf.format(date4);
-		// date4¿¡ ÀúÀåµÈ ½Ã°£À» sdf¿¡ ÁöÁ¤µÈ Çü½ÄÀÇ ¹®ÀÚ¿­·Î º¯È¯ÇÏ¿©
-		// text¿¡ º¯¼ö¿¡ ÀúÀå
+		// date4ì— ì €ì¥ëœ ì‹œê°„ì„ sdfì— ì§€ì •ëœ í˜•ì‹ì˜ ë¬¸ìì—´ë¡œ ë³€í™˜í•˜ì—¬
+		// textì— ë³€ìˆ˜ì— ì €ì¥
 		
 		System.out.println(text);
 	}
 	
 	
 	public void example7() {
-		// Math Å¬·¡½º
+		// Math í´ë˜ìŠ¤
 		// - java.lang
-		// - Math Å¬·¡½ºÀÇ ¸ğµç ÇÊµå¿Í ¸Ş¼Òµå´Â staticÀÌ´Ù.
-		//  -> ¸ğµç ³»¿ëÀÌ static ¿µ¿ª¿¡ ÀÖ´Ù
-		//     == Math ÀÚÃ¼°¡ static ´Ù ÀÖÀ¸´Ï±î º°µµ·Î °´Ã¼ »ı¼ºÀ» ÇÏÁö ¾Ê´Â´Ù.
+		// - Math í´ë˜ìŠ¤ì˜ ëª¨ë“  í•„ë“œì™€ ë©”ì†Œë“œëŠ” staticì´ë‹¤.
+		//  -> ëª¨ë“  ë‚´ìš©ì´ static ì˜ì—­ì— ìˆë‹¤
+		//     == Math ìì²´ê°€ static ë‹¤ ìˆìœ¼ë‹ˆê¹Œ ë³„ë„ë¡œ ê°ì²´ ìƒì„±ì„ í•˜ì§€ ì•ŠëŠ”ë‹¤.
 		
 		double d1 = 360.45;
 		// 3604.5    ( * 10 )
@@ -297,23 +297,23 @@ public class APIService {
 		// 3604.0 / 10.0 = 360.4
 		
 		
-		// ¼Ò¼öÁ¡ ¾Æ·¡ µÑÂ° ÀÚ¸®¿¡¼­ ¿Ã¸², ¹İ¿Ã¸², ³»¸² Ã³¸®ÇÏ±â
+		// ì†Œìˆ˜ì  ì•„ë˜ ë‘˜ì§¸ ìë¦¬ì—ì„œ ì˜¬ë¦¼, ë°˜ì˜¬ë¦¼, ë‚´ë¦¼ ì²˜ë¦¬í•˜ê¸°
 		
-		// double ceil() : ¿Ã¸²
+		// double ceil() : ì˜¬ë¦¼
 		System.out.println(  Math.ceil(d1 * 10)  / 10.0  );
 		
-		// double/int round() : ¹İ¿Ã¸²
+		// long/int round() : ë°˜ì˜¬ë¦¼
 		System.out.println( Math.round(d1 * 10) / 10.0  );
 		
-		// double floor() : ³»¸²
+		// double floor() : ë‚´ë¦¼
 		System.out.println( Math.floor(d1 * 10)  / 10.0 );
 		
-		// random() : 0ÀÌ»ó 1¹Ì¸¸ÀÇ ³­¼ö ¹ß»ı
+		// random() : 0ì´ìƒ 1ë¯¸ë§Œì˜ ë‚œìˆ˜ ë°œìƒ
 		
-		// 1~50 »çÀÌ ³­¼ö¸¦ ¹ß»ı½ÃÄÑ ÀúÀå
+		// 1~50 ì‚¬ì´ ë‚œìˆ˜ë¥¼ ë°œìƒì‹œì¼œ ì €ì¥
 		int ran =  (int)(Math.random() * 50 + 1);
 		
-		// 10 ~ 20»çÀÌ ³­¼ö
+		// 10 ~ 20ì‚¬ì´ ë‚œìˆ˜
 		int ran2 = (int)(Math.random() * 11 + 10);
 				// 0 <= ran <11
 				// 10 <= ran < 21
@@ -325,20 +325,20 @@ public class APIService {
 	
 	public void example8() {
 		
-		// Wrapper Å¬·¡½º
-		// -> ±âº» ÀÚ·áÇüÀ» °´Ã¼ ÇüÅÂ·Î º¯È¯ÇÏ´Â Å¬·¡½º¸¦ Á¾ÇÕÇÏ¿© 
-		//     Wrapper Å¬·¡½º¶ó°í ºÎ¸¥´Ù.
+		// Wrapper í´ë˜ìŠ¤
+		// -> ê¸°ë³¸ ìë£Œí˜•ì„ ê°ì²´ í˜•íƒœë¡œ ë³€í™˜í•˜ëŠ” í´ë˜ìŠ¤ë¥¼ ì¢…í•©í•˜ì—¬ 
+		//     Wrapper í´ë˜ìŠ¤ë¼ê³  ë¶€ë¥¸ë‹¤.
 		
-		// ¿Ö »ç¿ëÇÏ´Â°¡?
-		// 1) °¢ ÀÚ·áÇü¸¸ÀÇ ÇÊ¿äÇÑ ÇÊµå, ±â´ÉÀ» Á¦°øÇÏ±â À§ÇÏ¿©
-		//  ex) Integer.MAX_VALUE; // int ÃÖ´ë°ª
-		//      Integer.parseInt( "123" ); // String -> int·Î º¯È¯
+		// ì™œ ì‚¬ìš©í•˜ëŠ”ê°€?
+		// 1) ê° ìë£Œí˜•ë§Œì˜ í•„ìš”í•œ í•„ë“œ, ê¸°ëŠ¥ì„ ì œê³µí•˜ê¸° ìœ„í•˜ì—¬
+		//  ex) Integer.MAX_VALUE; // int ìµœëŒ€ê°’
+		//      Integer.parseInt( "123" ); // String -> intë¡œ ë³€í™˜
 		
-		// 2) ÄÃ·º¼Ç¿¡ º¯¼ö°ªÀ» ÀúÀåÇÒ ¼ö ÀÖ°Ô ÇÏ±â À§ÇÏ¿©
-		//		-> ÄÃ·º¼ÇÀº °´Ã¼¸¸ ÀúÀåÇÒ ¼ö ÀÖÀ½. (±âº» ÀÚ·áÇüÀº ÀúÀå ºÒ°¡´É)
-		//		--> ÇÏÁö¸¸ Wrapper Å¬·¡½º´Â ÀúÀå °¡´É .
+		// 2) ì»¬ë ‰ì…˜ì— ë³€ìˆ˜ê°’ì„ ì €ì¥í•  ìˆ˜ ìˆê²Œ í•˜ê¸° ìœ„í•˜ì—¬
+		//		-> ì»¬ë ‰ì…˜ì€ ê°ì²´ë§Œ ì €ì¥í•  ìˆ˜ ìˆìŒ. (ê¸°ë³¸ ìë£Œí˜•ì€ ì €ì¥ ë¶ˆê°€ëŠ¥)
+		//		--> í•˜ì§€ë§Œ Wrapper í´ë˜ìŠ¤ëŠ” ì €ì¥ ê°€ëŠ¥ .
 		
-		/* ±âº» ÀÚ·áÇü		Wrapper Å¬·¡½º
+		/* ê¸°ë³¸ ìë£Œí˜•		Wrapper í´ë˜ìŠ¤
 		 * byte				Byte
 		 * short			Short
 		 * int				Integer
@@ -350,22 +350,22 @@ public class APIService {
 		 * 
 		 * */
 		
-		// Integer Wrapper Å¬·¡½º »ìÆìº¸±â
-		System.out.println(Integer.BYTES); // int byte Å©±â == 4
-		System.out.println(Integer.SIZE);  // intÀÇ bit Å©±â == 32
-		System.out.println(Integer.MAX_VALUE); // ÃÖ´ë°ª
-		System.out.println(Integer.MIN_VALUE); // ÃÖ¼Ò°ª
-		System.out.println(Integer.TYPE); // ¸ÅÄªµÇ´Â ±âÁ¸ ÀÚ·áÇü
+		// Integer Wrapper í´ë˜ìŠ¤ ì‚´í´ë³´ê¸°
+		System.out.println(Integer.BYTES); // int byte í¬ê¸° == 4
+		System.out.println(Integer.SIZE);  // intì˜ bit í¬ê¸° == 32
+		System.out.println(Integer.MAX_VALUE); // ìµœëŒ€ê°’
+		System.out.println(Integer.MIN_VALUE); // ìµœì†Œê°’
+		System.out.println(Integer.TYPE); // ë§¤ì¹­ë˜ëŠ” ê¸°ì¡´ ìë£Œí˜•
 		
 		
-		// StringÀ¸·ÎµÈ ±âº»ÀÚ·áÇü ³»¿ëÀ» -> ±âº»ÀÚ·áÇüÀ¸·Î º¯È¯
+		// Stringìœ¼ë¡œëœ ê¸°ë³¸ìë£Œí˜• ë‚´ìš©ì„ -> ê¸°ë³¸ìë£Œí˜•ìœ¼ë¡œ ë³€í™˜
 		//  ex) "123"  ->  123
 		int iNum = Integer.parseInt("10000");
 		System.out.println(iNum + 10000);
 		
 		long lNum = Long.parseLong("10000");
 		
-		// "3.123456789"¸¦ double, float·Î º¯°æ
+		// "3.123456789"ë¥¼ double, floatë¡œ ë³€ê²½
 		double dNum = Double.parseDouble("3.12345678901234567890");
 		float fNum = Float.parseFloat("3.12345678901234567890");
 		
@@ -373,7 +373,7 @@ public class APIService {
 		System.out.println(fNum);
 		
 		
-		// ±âº»ÀÚ·áÇü -> StringÀ¸·Î º¯È¯
+		// ê¸°ë³¸ìë£Œí˜• -> Stringìœ¼ë¡œ ë³€í™˜
 		
 		int num = 123;
 		
@@ -381,27 +381,27 @@ public class APIService {
 		String st2 = num + "";
 		
 		
-		// Boxing : ±âº» ÀÚ·áÇü -> °´Ã¼·Î º¯°æ
+		// Boxing : ê¸°ë³¸ ìë£Œí˜• -> ê°ì²´ë¡œ ë³€ê²½
 		Integer i1 = new Integer(10);
 		Integer i2 = new Integer("20"); // Boxing + Parsing
 		
 		System.out.println(i1.toString());
 		System.out.println(i2.toString());
 		
-		// UnBoxing : Wrapper °´Ã¼ -> ±âº» ÀÚ·áÇü
-		int u1 = i1.intValue(); // i1 ÀÌ ÂüÁ¶ÇÏ´Â °´Ã¼°¡ °¡Áø int°ª ¹İÈ¯
-		int u2 = (int)i2; // Wrapper °´Ã¼ -> ±âº» ÀÚ·áÇü Çüº¯È¯
+		// UnBoxing : Wrapper ê°ì²´ -> ê¸°ë³¸ ìë£Œí˜•
+		int u1 = i1.intValue(); // i1 ì´ ì°¸ì¡°í•˜ëŠ” ê°ì²´ê°€ ê°€ì§„ intê°’ ë°˜í™˜
+		int u2 = (int)i2; // Wrapper ê°ì²´ -> ê¸°ë³¸ ìë£Œí˜• í˜•ë³€í™˜
 
 		
 		// AutoBoxing / AutoUnBoxing
-		// ÀÚµ¿À¸·Î   ±âº» ÀÚ·áÇü <-> Wrapper °´Ã¼  Çüº¯È¯
+		// ìë™ìœ¼ë¡œ   ê¸°ë³¸ ìë£Œí˜• <-> Wrapper ê°ì²´  í˜•ë³€í™˜
 		
 		//Integer i3 = new Integer(100);
 		Integer i3 = 100; // AutoBoxing
 		
 		int u3 = i3; // AutoUnBoxing
 		
-		// Âü°í : Java9 ¹öÀü ÀÌÈÄºÎÅÍ´Â AutoBoxing/AutoUnBoxingÀÌ °­Á¦µÊ
+		// ì°¸ê³  : Java9 ë²„ì „ ì´í›„ë¶€í„°ëŠ” AutoBoxing/AutoUnBoxingì´ ê°•ì œë¨
 		
 	}
 	
