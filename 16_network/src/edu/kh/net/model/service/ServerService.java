@@ -9,6 +9,8 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class ServerService {
 	
@@ -33,9 +35,8 @@ public class ServerService {
 		int port = 8500; // 서버 프로그램의 포트 번호
 		// 포트는 0 ~ 65535 사이 수로 지정 가능(단, 1023 이하는 사용 지양)
 		
-		
-		InputStream is = null;
-		OutputStream os = null;
+		InputStream is = null; // 서버 <- 클라이언트
+		OutputStream os = null; // 서버 -> 클라이언트
 		
 		BufferedReader br = null; // InputStream의 보조 스트림
 		PrintWriter pw = null; // OutputStream의 보조 스트림
@@ -69,17 +70,40 @@ public class ServerService {
 			pw = new PrintWriter(os);
 			
 			
+			// 7) 스트림을 통해서 읽고 쓰기
+			
+			// 서버 -> 클라이언트로 메세지 전송
+			Date now = new Date(); // 현재 시간이 Date 객체에 저장됨
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			String time = sdf.format(now) + "[서버 접속 성공]";
+			
+			pw.println( time ); // 클라이언트 쪽으로 time에 저장된 문자열을 출력하겠다
+			pw.flush(); // 스트림에 있는 내용을 밀어냄
+			
+			
+			// 서버 <- 클라이언트로 전달한 메세지 읽기
+			String message = br.readLine(); // 클라이언트로 부터 전달 받은 메세지를 한 줄 읽음
+			System.out.println("클라이언트가 전달한 메세지 : " + message);
+			
+			
 		}catch(IOException e) {
 			e.printStackTrace();
 		}finally {
+			// 8) 통신 종료
+			// 열려있는 스트림, 소켓을 닫기(== 사용한 자원 반환)
+			
+			try {
+				// 보조스트림을 닫으면 연결되어있던 기반 스트림도 같이 닫힌다!
+				if(br != null) br.close(); // is.close(); 같이 수행됨
+				if(pw != null) pw.close(); // os.close(); 같이 수행됨
+				
+				if(serverSocket != null) serverSocket.close();
+				if(clientSocket != null) clientSocket.close();
+				
+			}catch(IOException e) {
+				e.printStackTrace();
+			}
 			
 		}
-		
-		
-		
-		
-		
 	}
-	
-	
 }
